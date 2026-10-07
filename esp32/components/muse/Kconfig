@@ -84,6 +84,10 @@ menu "Muse"
         config MUSE_BOARD_WAVESHARE_S3_LCD7
             bool "Waveshare ESP32-S3-Touch-LCD-7 (800x480 touch LCD, no audio)"
             depends on IDF_TARGET_ESP32S3
+
+        config MUSE_BOARD_LILYGO_T_DISPLAY_S3
+            bool "LilyGO T-Display-S3 (ESP32-S3, 170x320 LCD, two buttons, no audio)"
+            depends on IDF_TARGET_ESP32S3
     endchoice
 
     config MUSE_ENABLED
@@ -109,6 +113,7 @@ menu "Muse"
         default "fnk0104b" if MUSE_BOARD_FNK0104B
         default "guition_jc3248w535" if MUSE_BOARD_GUITION_JC3248W535
         default "waveshare_s3_lcd7" if MUSE_BOARD_WAVESHARE_S3_LCD7
+        default "lilygo_t_display_s3" if MUSE_BOARD_LILYGO_T_DISPLAY_S3
         default "none"
 
     # The Muse tools' serial port: the console UART behind the board's USB

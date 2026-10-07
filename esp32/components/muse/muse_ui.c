@@ -1241,7 +1241,9 @@ static void update_chrome(float now)
     if (b.passkey || confirm) {
         char code[24], hint[40];
         if (confirm) {
-            if (!muse_board->audio_init) {
+            /* A touch board without audio may have no button to press (the
+             * Waveshare 7"); every other board names its talk button. */
+            if (!muse_board->audio_init && muse_board->touch) {
                 strlcpy(code, "Tap screen", sizeof(code));
                 strlcpy(hint, "Tap to confirm pairing", sizeof(hint));
             } else {
